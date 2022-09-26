@@ -1,0 +1,35 @@
+- name: file module
+  hosts: webserver
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: create a directory if it does not exist.
+      file:
+        path: /etc/test
+        state: directory
+
+    - name: copy files frome local to remote
+      copy:
+        src: files/test.txt
+        dest: /etc/test/test.txt
+
+    - name: test template
+      template:
+        src: template/test.j2
+        dest: /etc/test/test.cfg
+
+    - name: fetch a file
+      fetch:
+        src: /etc/test/test.txt
+        dest: ./tmp/
+        flat: yes
+
+    - name: Check that a page returns a status 200 and fail if the word AWESOME is not in the page contents
+      uri:
+        url: http://www.example.com
+        return_content: yes
+      register: result
+
+    - debug:
+        var: result

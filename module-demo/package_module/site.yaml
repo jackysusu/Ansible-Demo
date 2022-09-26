@@ -1,0 +1,29 @@
+---
+
+- name: test package
+  hosts: all
+  become: yes
+
+  tasks:
+    # - name: test yum module
+    #   yum:
+    #     name: git
+    #     state: absent
+    #   when: ansible_facts['distribution'] == "CentOS"
+
+    # - name: test apt module
+    #   apt:
+    #     name: git
+    #     state: absent
+    #   when: ansible_facts['distribution'] == "Ubuntu"
+    # - name: test package module
+    #   package:
+    #     name: git
+    #     state: present
+
+    - name: pip install flask
+      pip:
+        name: flask
+        state: present
+        virtualenv: /home/jacky/vir/
+        virtualenv_command: /usr/bin/python3 -m venv

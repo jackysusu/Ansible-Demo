@@ -1,0 +1,17 @@
+- name: file module
+  hosts: all
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: yum install
+      yum:
+        name: git
+        state: present
+      when: ansible_facts['distribution'] == "CentOS"
+
+    - name: atp install
+      apt:
+        name: git
+        state: present
+      when: ansible_facts['distribution'] == "Ubuntu"

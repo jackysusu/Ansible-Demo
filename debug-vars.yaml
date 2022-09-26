@@ -1,0 +1,14 @@
+- name: Hello World
+  hosts: localhost
+
+  vars: 
+    greetings: "hello from playbook"
+
+  vars_files:
+    - "vars/demo.yaml"
+    - "vars/test.yaml"
+
+  tasks:
+    - name: Hello World debug
+      debug:
+        msg: "{{greetings}}"

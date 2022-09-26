@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - set_fact:
+        aws_instance_host_group: aws_instance
+    - add_host:
+        name: 192.168.11.10
+        groups: "{{ aws_instance_host_group }}"
+
+- hosts: "{{ hostvars.localhost.aws_instance_host_group }}"
+  gather_facts: false
+  tasks:
+    - debug:
+        var: groups
+    - debug:
+        var: inventory_hostname

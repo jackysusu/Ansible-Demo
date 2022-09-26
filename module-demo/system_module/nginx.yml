@@ -1,0 +1,48 @@
+---
+
+- name: install and start nginx
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: install nginx on ubuntu
+      apt:
+        name:
+          - nginx
+        state: present
+        force_apt_get: yes
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: change index.html on ubuntu
+      template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: Add nginx repository
+      yum_repository:
+        name: nginx
+        description: nginx yum repo
+        baseurl: https://nginx.org/packages/centos/$releasever/$basearch/
+        gpgcheck: yes
+        gpgkey: https://nginx.org/keys/nginx_signing.key
+      when: ansible_facts['distribution'] == "CentOS"
+
+    - name: install nginx on centos
+      yum:
+        name:
+          - epel-release
+          - nginx
+        state: present
+      when: ansible_facts['distribution'] == "CentOS"
+
+    - name: change index.html on Centos
+      template:
+        src: templates/index.html.j2
+        dest: /usr/share/nginx/html/index.html
+      when: ansible_facts['distribution'] == "CentOS"
+
+    - name: Start service nginx
+      service:
+        name: nginx
+        state: stopped

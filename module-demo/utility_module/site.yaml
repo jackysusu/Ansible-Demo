@@ -1,0 +1,26 @@
+- name: test facts
+  hosts: all
+  #become: yes
+  gather_facts: no
+
+  tasks:
+    - name: gather facts
+      setup:
+        gather_subset: min
+
+    - name: test set facts
+      set_fact:
+        test_set_fact: 'set from set_fact'
+    - debug:
+        var: hostvars[ansible_host]
+
+    - name: test cmd
+      command: cat /etc/hosts
+      register: hosts_results
+
+    - name: test set_fact
+      set_fact:
+        hosts_ip: "{{ hosts_results['stdout'] }}"
+
+    - debug:
+       var: hosts_ip

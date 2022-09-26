@@ -1,0 +1,4 @@
+ansible_ssh_host: 192.168.11.21
+http_port: 80
+host_prefix: test1-
+ip_prefix: 192.168.1.

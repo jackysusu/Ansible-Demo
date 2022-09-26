@@ -1,0 +1,1061 @@
+
+PLAY [test facts] **************************************************************
+
+TASK [gather facts] ************************************************************
+ok: [centos]
+ok: [web2]
+ok: [web1]
+
+TASK [test set facts] **********************************************************
+ok: [web1]
+ok: [centos]
+ok: [web2]
+
+TASK [debug] *******************************************************************
+ok: [web1] => {
+    "hostvars['web1']": {
+        "ansible_apparmor": {
+            "status": "enabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_check_mode": false,
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+            "ro": true,
+            "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+        },
+        "ansible_config_file": "/home/jacky/ansible/lesson/module-demo/utility_module/ansible.cfg",
+        "ansible_connection": "ssh",
+        "ansible_date_time": {
+            "date": "2022-09-23",
+            "day": "23",
+            "epoch": "1663916934",
+            "epoch_int": "1663916934",
+            "hour": "07",
+            "iso8601": "2022-09-23T07:08:54Z",
+            "iso8601_basic": "20220923T070854211039",
+            "iso8601_basic_short": "20220923T070854",
+            "iso8601_micro": "2022-09-23T07:08:54.211039Z",
+            "minute": "08",
+            "month": "09",
+            "second": "54",
+            "time": "07:08:54",
+            "tz": "UTC",
+            "tz_dst": "UTC",
+            "tz_offset": "+0000",
+            "weekday": "Friday",
+            "weekday_number": "5",
+            "weeknumber": "38",
+            "year": "2022"
+        },
+        "ansible_diff_mode": false,
+        "ansible_distribution": "Ubuntu",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/os-release",
+        "ansible_distribution_file_variety": "Debian",
+        "ansible_distribution_major_version": "20",
+        "ansible_distribution_release": "focal",
+        "ansible_distribution_version": "20.04",
+        "ansible_dns": {
+            "nameservers": [
+                "127.0.0.53"
+            ],
+            "options": {
+                "edns0": true,
+                "trust-ad": true
+            }
+        },
+        "ansible_domain": "",
+        "ansible_effective_group_id": 1000,
+        "ansible_effective_user_id": 1000,
+        "ansible_env": {
+            "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+            "HOME": "/home/jacky",
+            "LANG": "en_US.UTF-8",
+            "LOGNAME": "jacky",
+            "MOTD_SHOWN": "pam",
+            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+            "PWD": "/home/jacky",
+            "SHELL": "/bin/bash",
+            "SHLVL": "0",
+            "SSH_CLIENT": "192.168.11.10 53618 22",
+            "SSH_CONNECTION": "192.168.11.10 53618 192.168.11.21 22",
+            "SSH_TTY": "/dev/pts/1",
+            "TERM": "xterm",
+            "USER": "jacky",
+            "XDG_RUNTIME_DIR": "/run/user/1000",
+            "XDG_SESSION_CLASS": "user",
+            "XDG_SESSION_ID": "25",
+            "XDG_SESSION_TYPE": "tty",
+            "_": "/bin/sh"
+        },
+        "ansible_facts": {
+            "ansible_local": {},
+            "apparmor": {
+                "status": "enabled"
+            },
+            "architecture": "x86_64",
+            "cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+                "ro": true,
+                "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+            },
+            "date_time": {
+                "date": "2022-09-23",
+                "day": "23",
+                "epoch": "1663916934",
+                "epoch_int": "1663916934",
+                "hour": "07",
+                "iso8601": "2022-09-23T07:08:54Z",
+                "iso8601_basic": "20220923T070854211039",
+                "iso8601_basic_short": "20220923T070854",
+                "iso8601_micro": "2022-09-23T07:08:54.211039Z",
+                "minute": "08",
+                "month": "09",
+                "second": "54",
+                "time": "07:08:54",
+                "tz": "UTC",
+                "tz_dst": "UTC",
+                "tz_offset": "+0000",
+                "weekday": "Friday",
+                "weekday_number": "5",
+                "weeknumber": "38",
+                "year": "2022"
+            },
+            "discovered_interpreter_python": "/usr/bin/python3",
+            "distribution": "Ubuntu",
+            "distribution_file_parsed": true,
+            "distribution_file_path": "/etc/os-release",
+            "distribution_file_variety": "Debian",
+            "distribution_major_version": "20",
+            "distribution_release": "focal",
+            "distribution_version": "20.04",
+            "dns": {
+                "nameservers": [
+                    "127.0.0.53"
+                ],
+                "options": {
+                    "edns0": true,
+                    "trust-ad": true
+                }
+            },
+            "domain": "",
+            "effective_group_id": 1000,
+            "effective_user_id": 1000,
+            "env": {
+                "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+                "HOME": "/home/jacky",
+                "LANG": "en_US.UTF-8",
+                "LOGNAME": "jacky",
+                "MOTD_SHOWN": "pam",
+                "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+                "PWD": "/home/jacky",
+                "SHELL": "/bin/bash",
+                "SHLVL": "0",
+                "SSH_CLIENT": "192.168.11.10 53618 22",
+                "SSH_CONNECTION": "192.168.11.10 53618 192.168.11.21 22",
+                "SSH_TTY": "/dev/pts/1",
+                "TERM": "xterm",
+                "USER": "jacky",
+                "XDG_RUNTIME_DIR": "/run/user/1000",
+                "XDG_SESSION_CLASS": "user",
+                "XDG_SESSION_ID": "25",
+                "XDG_SESSION_TYPE": "tty",
+                "_": "/bin/sh"
+            },
+            "fips": false,
+            "fqdn": "web1",
+            "gather_subset": [
+                "min"
+            ],
+            "hostname": "web1",
+            "kernel": "5.4.0-126-generic",
+            "kernel_version": "#142-Ubuntu SMP Fri Aug 26 12:12:57 UTC 2022",
+            "lsb": {
+                "codename": "focal",
+                "description": "Ubuntu 20.04.5 LTS",
+                "id": "Ubuntu",
+                "major_release": "20",
+                "release": "20.04"
+            },
+            "machine": "x86_64",
+            "machine_id": "c0e38ba871fb424ebce12ac676dcd92b",
+            "module_setup": true,
+            "nodename": "web1",
+            "os_family": "Debian",
+            "pkg_mgr": "apt",
+            "proc_cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+                "ro": true,
+                "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+            },
+            "python": {
+                "executable": "/usr/bin/python3",
+                "has_sslcontext": true,
+                "type": "cpython",
+                "version": {
+                    "major": 3,
+                    "micro": 10,
+                    "minor": 8,
+                    "releaselevel": "final",
+                    "serial": 0
+                },
+                "version_info": [
+                    3,
+                    8,
+                    10,
+                    "final",
+                    0
+                ]
+            },
+            "python_version": "3.8.10",
+            "real_group_id": 1000,
+            "real_user_id": 1000,
+            "selinux": {
+                "status": "disabled"
+            },
+            "selinux_python_present": true,
+            "service_mgr": "systemd",
+            "ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAPJQS/E8MCAuKvQd/acigivlsp/Qn3y49MMOhMYl2m1ywjWxcMDD/Z1HZTH9Q9KrsXUfWZgfwVK8rARnFA56kv+BcljXw2o2kxzgvkJF/aLQBCNp4mZ9auOfjVM6hKtag9kfeF31nNielAt4B7be3B3G0aOs8N44my4QOtfP9ATlAAAAFQDGFMDuGTTgeKv47dx1AvXQ8HegHwAAAIB95qXtsRtlDU7vVkATVNj+KMOk/XUAubuvwFlc1lBrfKdJV1oWrzI3TGdKg4XO9pvQLgDv/ihWx+z6qxSF6V69vF3SKWGlvfCN6LiYl2TWo4iNmfxU4p8HyFDB5MRpaoxHdFBjsJ/sAQov4hpx597OsF9ZA7UB1Gmd3uM0OReK5wAAAIEA3AiyU4dYNSRPOrneswKZYOAKhcwRE2NXZu5j2Y4uTvLXn22zSCQ6Vw+K1I+tSkUSNJdtOUI6Ekka/eI+afarUt3F3tRU3+iAxPAwA5WdFuQAxXA1h9TK/oSUekDtObvr6y0+nQhJBmw3102GczGBPs2QhdbNp+hOz0yCFwO3BXw=",
+            "ssh_host_key_dsa_public_keytype": "ssh-dss",
+            "ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMDskFbZ/FKeMW1AD8siTm9X6IJYgaWH8/Ehyg870F+Hbw5o6tZ+fU9Qf7Qwk8JnsV9PWfQ62BP/tdmEEt27rfQ=",
+            "ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+            "ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGQf2p1RZ4Jvm8vmcDIWxllMDAiDw7jbxU3fMdjBPhZI",
+            "ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+            "ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCuemJN6t4cwZsrU/3QnpC7M5Ody6bBqEp2prZs6YNYZkLXJdCKGbdjtLV376QvPQoexd4Lj5ayZn1bm6fKQHETVS2yyzI0/WB3VsYLHhhegZToWUjX7mrjqMpII6n9+dk/nrsC34m/hhLrN+Zb61jAcwrz48zRFblPryPKoROYzVlJlmiYwmJgOZ7bLC4MZYKABBPim+UcMPNGVanKpGa598/Xe8/88sZlj452OtAX6bAXJwfakpnnH+igdoI8erBPJOHriz3iMb1RfNEiHI659a2QfF78dcco1+RnRAedNn0wduqqeLcFs4ma4Tzl0U2ACVfh73G3u6wDr+QU4Jn3X7hlyvpXbwbGsIdWY50iUDYT8L3lgIA5VsVkLDFlWsX6kAgLug1wRt92bIcVosCVLT5oqC9e5OCyN4kqgPcMQnKOy/c+ZHP5k+NJ1bt/DSa8YWGROSYMuoo7E/OCSXpCGxag02le0EWW8F/o9mDqdqkQH4hy/XBg+Zau0nifBQU=",
+            "ssh_host_key_rsa_public_keytype": "ssh-rsa",
+            "system": "Linux",
+            "system_capabilities": [
+                ""
+            ],
+            "system_capabilities_enforced": "True",
+            "user_dir": "/home/jacky",
+            "user_gecos": "jacky",
+            "user_gid": 1000,
+            "user_id": "jacky",
+            "user_shell": "/bin/bash",
+            "user_uid": 1000,
+            "userspace_architecture": "x86_64",
+            "userspace_bits": "64"
+        },
+        "ansible_fips": false,
+        "ansible_forks": 5,
+        "ansible_fqdn": "web1",
+        "ansible_host": "192.168.11.21",
+        "ansible_hostname": "web1",
+        "ansible_inventory_sources": [
+            "/home/jacky/ansible/lesson/module-demo/utility_module/inventory/hosts"
+        ],
+        "ansible_kernel": "5.4.0-126-generic",
+        "ansible_kernel_version": "#142-Ubuntu SMP Fri Aug 26 12:12:57 UTC 2022",
+        "ansible_local": {},
+        "ansible_lsb": {
+            "codename": "focal",
+            "description": "Ubuntu 20.04.5 LTS",
+            "id": "Ubuntu",
+            "major_release": "20",
+            "release": "20.04"
+        },
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "c0e38ba871fb424ebce12ac676dcd92b",
+        "ansible_nodename": "web1",
+        "ansible_os_family": "Debian",
+        "ansible_pkg_mgr": "apt",
+        "ansible_playbook_python": "/usr/bin/python3",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+            "ro": true,
+            "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+        },
+        "ansible_python": {
+            "executable": "/usr/bin/python3",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 10,
+                "minor": 8,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                8,
+                10,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.8.10",
+        "ansible_real_group_id": 1000,
+        "ansible_real_user_id": 1000,
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_selinux": {
+            "status": "disabled"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_skip_tags": [],
+        "ansible_ssh_host": "192.168.11.21",
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAPJQS/E8MCAuKvQd/acigivlsp/Qn3y49MMOhMYl2m1ywjWxcMDD/Z1HZTH9Q9KrsXUfWZgfwVK8rARnFA56kv+BcljXw2o2kxzgvkJF/aLQBCNp4mZ9auOfjVM6hKtag9kfeF31nNielAt4B7be3B3G0aOs8N44my4QOtfP9ATlAAAAFQDGFMDuGTTgeKv47dx1AvXQ8HegHwAAAIB95qXtsRtlDU7vVkATVNj+KMOk/XUAubuvwFlc1lBrfKdJV1oWrzI3TGdKg4XO9pvQLgDv/ihWx+z6qxSF6V69vF3SKWGlvfCN6LiYl2TWo4iNmfxU4p8HyFDB5MRpaoxHdFBjsJ/sAQov4hpx597OsF9ZA7UB1Gmd3uM0OReK5wAAAIEA3AiyU4dYNSRPOrneswKZYOAKhcwRE2NXZu5j2Y4uTvLXn22zSCQ6Vw+K1I+tSkUSNJdtOUI6Ekka/eI+afarUt3F3tRU3+iAxPAwA5WdFuQAxXA1h9TK/oSUekDtObvr6y0+nQhJBmw3102GczGBPs2QhdbNp+hOz0yCFwO3BXw=",
+        "ansible_ssh_host_key_dsa_public_keytype": "ssh-dss",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMDskFbZ/FKeMW1AD8siTm9X6IJYgaWH8/Ehyg870F+Hbw5o6tZ+fU9Qf7Qwk8JnsV9PWfQ62BP/tdmEEt27rfQ=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGQf2p1RZ4Jvm8vmcDIWxllMDAiDw7jbxU3fMdjBPhZI",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCuemJN6t4cwZsrU/3QnpC7M5Ody6bBqEp2prZs6YNYZkLXJdCKGbdjtLV376QvPQoexd4Lj5ayZn1bm6fKQHETVS2yyzI0/WB3VsYLHhhegZToWUjX7mrjqMpII6n9+dk/nrsC34m/hhLrN+Zb61jAcwrz48zRFblPryPKoROYzVlJlmiYwmJgOZ7bLC4MZYKABBPim+UcMPNGVanKpGa598/Xe8/88sZlj452OtAX6bAXJwfakpnnH+igdoI8erBPJOHriz3iMb1RfNEiHI659a2QfF78dcco1+RnRAedNn0wduqqeLcFs4ma4Tzl0U2ACVfh73G3u6wDr+QU4Jn3X7hlyvpXbwbGsIdWY50iUDYT8L3lgIA5VsVkLDFlWsX6kAgLug1wRt92bIcVosCVLT5oqC9e5OCyN4kqgPcMQnKOy/c+ZHP5k+NJ1bt/DSa8YWGROSYMuoo7E/OCSXpCGxag02le0EWW8F/o9mDqdqkQH4hy/XBg+Zau0nifBQU=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [
+            ""
+        ],
+        "ansible_system_capabilities_enforced": "True",
+        "ansible_user": "jacky",
+        "ansible_user_dir": "/home/jacky",
+        "ansible_user_gecos": "jacky",
+        "ansible_user_gid": 1000,
+        "ansible_user_id": "jacky",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 1000,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.12.9",
+            "major": 2,
+            "minor": 12,
+            "revision": 9,
+            "string": "2.12.9"
+        },
+        "discovered_interpreter_python": "/usr/bin/python3",
+        "gather_subset": [
+            "min"
+        ],
+        "group_names": [
+            "ungrouped"
+        ],
+        "groups": {
+            "all": [
+                "web1",
+                "web2",
+                "centos"
+            ],
+            "ungrouped": [
+                "web1",
+                "web2",
+                "centos"
+            ]
+        },
+        "http_port": 80,
+        "inventory_dir": "/home/jacky/ansible/lesson/module-demo/utility_module/inventory",
+        "inventory_file": "/home/jacky/ansible/lesson/module-demo/utility_module/inventory/hosts",
+        "inventory_hostname": "web1",
+        "inventory_hostname_short": "web1",
+        "module_setup": true,
+        "omit": "__omit_place_holder__5e400482bb144a3ca6ad431377610fbc861084ed",
+        "playbook_dir": "/home/jacky/ansible/lesson/module-demo/utility_module",
+        "test_set_fact": "set from set_fact"
+    }
+}
+ok: [centos] => {
+    "hostvars['web1']": {
+        "ansible_apparmor": {
+            "status": "enabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_check_mode": false,
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+            "ro": true,
+            "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+        },
+        "ansible_config_file": "/home/jacky/ansible/lesson/module-demo/utility_module/ansible.cfg",
+        "ansible_connection": "ssh",
+        "ansible_date_time": {
+            "date": "2022-09-23",
+            "day": "23",
+            "epoch": "1663916934",
+            "epoch_int": "1663916934",
+            "hour": "07",
+            "iso8601": "2022-09-23T07:08:54Z",
+            "iso8601_basic": "20220923T070854211039",
+            "iso8601_basic_short": "20220923T070854",
+            "iso8601_micro": "2022-09-23T07:08:54.211039Z",
+            "minute": "08",
+            "month": "09",
+            "second": "54",
+            "time": "07:08:54",
+            "tz": "UTC",
+            "tz_dst": "UTC",
+            "tz_offset": "+0000",
+            "weekday": "Friday",
+            "weekday_number": "5",
+            "weeknumber": "38",
+            "year": "2022"
+        },
+        "ansible_diff_mode": false,
+        "ansible_distribution": "Ubuntu",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/os-release",
+        "ansible_distribution_file_variety": "Debian",
+        "ansible_distribution_major_version": "20",
+        "ansible_distribution_release": "focal",
+        "ansible_distribution_version": "20.04",
+        "ansible_dns": {
+            "nameservers": [
+                "127.0.0.53"
+            ],
+            "options": {
+                "edns0": true,
+                "trust-ad": true
+            }
+        },
+        "ansible_domain": "",
+        "ansible_effective_group_id": 1000,
+        "ansible_effective_user_id": 1000,
+        "ansible_env": {
+            "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+            "HOME": "/home/jacky",
+            "LANG": "en_US.UTF-8",
+            "LOGNAME": "jacky",
+            "MOTD_SHOWN": "pam",
+            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+            "PWD": "/home/jacky",
+            "SHELL": "/bin/bash",
+            "SHLVL": "0",
+            "SSH_CLIENT": "192.168.11.10 53618 22",
+            "SSH_CONNECTION": "192.168.11.10 53618 192.168.11.21 22",
+            "SSH_TTY": "/dev/pts/1",
+            "TERM": "xterm",
+            "USER": "jacky",
+            "XDG_RUNTIME_DIR": "/run/user/1000",
+            "XDG_SESSION_CLASS": "user",
+            "XDG_SESSION_ID": "25",
+            "XDG_SESSION_TYPE": "tty",
+            "_": "/bin/sh"
+        },
+        "ansible_facts": {
+            "ansible_local": {},
+            "apparmor": {
+                "status": "enabled"
+            },
+            "architecture": "x86_64",
+            "cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+                "ro": true,
+                "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+            },
+            "date_time": {
+                "date": "2022-09-23",
+                "day": "23",
+                "epoch": "1663916934",
+                "epoch_int": "1663916934",
+                "hour": "07",
+                "iso8601": "2022-09-23T07:08:54Z",
+                "iso8601_basic": "20220923T070854211039",
+                "iso8601_basic_short": "20220923T070854",
+                "iso8601_micro": "2022-09-23T07:08:54.211039Z",
+                "minute": "08",
+                "month": "09",
+                "second": "54",
+                "time": "07:08:54",
+                "tz": "UTC",
+                "tz_dst": "UTC",
+                "tz_offset": "+0000",
+                "weekday": "Friday",
+                "weekday_number": "5",
+                "weeknumber": "38",
+                "year": "2022"
+            },
+            "discovered_interpreter_python": "/usr/bin/python3",
+            "distribution": "Ubuntu",
+            "distribution_file_parsed": true,
+            "distribution_file_path": "/etc/os-release",
+            "distribution_file_variety": "Debian",
+            "distribution_major_version": "20",
+            "distribution_release": "focal",
+            "distribution_version": "20.04",
+            "dns": {
+                "nameservers": [
+                    "127.0.0.53"
+                ],
+                "options": {
+                    "edns0": true,
+                    "trust-ad": true
+                }
+            },
+            "domain": "",
+            "effective_group_id": 1000,
+            "effective_user_id": 1000,
+            "env": {
+                "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+                "HOME": "/home/jacky",
+                "LANG": "en_US.UTF-8",
+                "LOGNAME": "jacky",
+                "MOTD_SHOWN": "pam",
+                "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+                "PWD": "/home/jacky",
+                "SHELL": "/bin/bash",
+                "SHLVL": "0",
+                "SSH_CLIENT": "192.168.11.10 53618 22",
+                "SSH_CONNECTION": "192.168.11.10 53618 192.168.11.21 22",
+                "SSH_TTY": "/dev/pts/1",
+                "TERM": "xterm",
+                "USER": "jacky",
+                "XDG_RUNTIME_DIR": "/run/user/1000",
+                "XDG_SESSION_CLASS": "user",
+                "XDG_SESSION_ID": "25",
+                "XDG_SESSION_TYPE": "tty",
+                "_": "/bin/sh"
+            },
+            "fips": false,
+            "fqdn": "web1",
+            "gather_subset": [
+                "min"
+            ],
+            "hostname": "web1",
+            "kernel": "5.4.0-126-generic",
+            "kernel_version": "#142-Ubuntu SMP Fri Aug 26 12:12:57 UTC 2022",
+            "lsb": {
+                "codename": "focal",
+                "description": "Ubuntu 20.04.5 LTS",
+                "id": "Ubuntu",
+                "major_release": "20",
+                "release": "20.04"
+            },
+            "machine": "x86_64",
+            "machine_id": "c0e38ba871fb424ebce12ac676dcd92b",
+            "module_setup": true,
+            "nodename": "web1",
+            "os_family": "Debian",
+            "pkg_mgr": "apt",
+            "proc_cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+                "ro": true,
+                "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+            },
+            "python": {
+                "executable": "/usr/bin/python3",
+                "has_sslcontext": true,
+                "type": "cpython",
+                "version": {
+                    "major": 3,
+                    "micro": 10,
+                    "minor": 8,
+                    "releaselevel": "final",
+                    "serial": 0
+                },
+                "version_info": [
+                    3,
+                    8,
+                    10,
+                    "final",
+                    0
+                ]
+            },
+            "python_version": "3.8.10",
+            "real_group_id": 1000,
+            "real_user_id": 1000,
+            "selinux": {
+                "status": "disabled"
+            },
+            "selinux_python_present": true,
+            "service_mgr": "systemd",
+            "ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAPJQS/E8MCAuKvQd/acigivlsp/Qn3y49MMOhMYl2m1ywjWxcMDD/Z1HZTH9Q9KrsXUfWZgfwVK8rARnFA56kv+BcljXw2o2kxzgvkJF/aLQBCNp4mZ9auOfjVM6hKtag9kfeF31nNielAt4B7be3B3G0aOs8N44my4QOtfP9ATlAAAAFQDGFMDuGTTgeKv47dx1AvXQ8HegHwAAAIB95qXtsRtlDU7vVkATVNj+KMOk/XUAubuvwFlc1lBrfKdJV1oWrzI3TGdKg4XO9pvQLgDv/ihWx+z6qxSF6V69vF3SKWGlvfCN6LiYl2TWo4iNmfxU4p8HyFDB5MRpaoxHdFBjsJ/sAQov4hpx597OsF9ZA7UB1Gmd3uM0OReK5wAAAIEA3AiyU4dYNSRPOrneswKZYOAKhcwRE2NXZu5j2Y4uTvLXn22zSCQ6Vw+K1I+tSkUSNJdtOUI6Ekka/eI+afarUt3F3tRU3+iAxPAwA5WdFuQAxXA1h9TK/oSUekDtObvr6y0+nQhJBmw3102GczGBPs2QhdbNp+hOz0yCFwO3BXw=",
+            "ssh_host_key_dsa_public_keytype": "ssh-dss",
+            "ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMDskFbZ/FKeMW1AD8siTm9X6IJYgaWH8/Ehyg870F+Hbw5o6tZ+fU9Qf7Qwk8JnsV9PWfQ62BP/tdmEEt27rfQ=",
+            "ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+            "ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGQf2p1RZ4Jvm8vmcDIWxllMDAiDw7jbxU3fMdjBPhZI",
+            "ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+            "ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCuemJN6t4cwZsrU/3QnpC7M5Ody6bBqEp2prZs6YNYZkLXJdCKGbdjtLV376QvPQoexd4Lj5ayZn1bm6fKQHETVS2yyzI0/WB3VsYLHhhegZToWUjX7mrjqMpII6n9+dk/nrsC34m/hhLrN+Zb61jAcwrz48zRFblPryPKoROYzVlJlmiYwmJgOZ7bLC4MZYKABBPim+UcMPNGVanKpGa598/Xe8/88sZlj452OtAX6bAXJwfakpnnH+igdoI8erBPJOHriz3iMb1RfNEiHI659a2QfF78dcco1+RnRAedNn0wduqqeLcFs4ma4Tzl0U2ACVfh73G3u6wDr+QU4Jn3X7hlyvpXbwbGsIdWY50iUDYT8L3lgIA5VsVkLDFlWsX6kAgLug1wRt92bIcVosCVLT5oqC9e5OCyN4kqgPcMQnKOy/c+ZHP5k+NJ1bt/DSa8YWGROSYMuoo7E/OCSXpCGxag02le0EWW8F/o9mDqdqkQH4hy/XBg+Zau0nifBQU=",
+            "ssh_host_key_rsa_public_keytype": "ssh-rsa",
+            "system": "Linux",
+            "system_capabilities": [
+                ""
+            ],
+            "system_capabilities_enforced": "True",
+            "user_dir": "/home/jacky",
+            "user_gecos": "jacky",
+            "user_gid": 1000,
+            "user_id": "jacky",
+            "user_shell": "/bin/bash",
+            "user_uid": 1000,
+            "userspace_architecture": "x86_64",
+            "userspace_bits": "64"
+        },
+        "ansible_fips": false,
+        "ansible_forks": 5,
+        "ansible_fqdn": "web1",
+        "ansible_host": "192.168.11.21",
+        "ansible_hostname": "web1",
+        "ansible_inventory_sources": [
+            "/home/jacky/ansible/lesson/module-demo/utility_module/inventory/hosts"
+        ],
+        "ansible_kernel": "5.4.0-126-generic",
+        "ansible_kernel_version": "#142-Ubuntu SMP Fri Aug 26 12:12:57 UTC 2022",
+        "ansible_local": {},
+        "ansible_lsb": {
+            "codename": "focal",
+            "description": "Ubuntu 20.04.5 LTS",
+            "id": "Ubuntu",
+            "major_release": "20",
+            "release": "20.04"
+        },
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "c0e38ba871fb424ebce12ac676dcd92b",
+        "ansible_nodename": "web1",
+        "ansible_os_family": "Debian",
+        "ansible_pkg_mgr": "apt",
+        "ansible_playbook_python": "/usr/bin/python3",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+            "ro": true,
+            "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+        },
+        "ansible_python": {
+            "executable": "/usr/bin/python3",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 10,
+                "minor": 8,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                8,
+                10,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.8.10",
+        "ansible_real_group_id": 1000,
+        "ansible_real_user_id": 1000,
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_selinux": {
+            "status": "disabled"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_skip_tags": [],
+        "ansible_ssh_host": "192.168.11.21",
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAPJQS/E8MCAuKvQd/acigivlsp/Qn3y49MMOhMYl2m1ywjWxcMDD/Z1HZTH9Q9KrsXUfWZgfwVK8rARnFA56kv+BcljXw2o2kxzgvkJF/aLQBCNp4mZ9auOfjVM6hKtag9kfeF31nNielAt4B7be3B3G0aOs8N44my4QOtfP9ATlAAAAFQDGFMDuGTTgeKv47dx1AvXQ8HegHwAAAIB95qXtsRtlDU7vVkATVNj+KMOk/XUAubuvwFlc1lBrfKdJV1oWrzI3TGdKg4XO9pvQLgDv/ihWx+z6qxSF6V69vF3SKWGlvfCN6LiYl2TWo4iNmfxU4p8HyFDB5MRpaoxHdFBjsJ/sAQov4hpx597OsF9ZA7UB1Gmd3uM0OReK5wAAAIEA3AiyU4dYNSRPOrneswKZYOAKhcwRE2NXZu5j2Y4uTvLXn22zSCQ6Vw+K1I+tSkUSNJdtOUI6Ekka/eI+afarUt3F3tRU3+iAxPAwA5WdFuQAxXA1h9TK/oSUekDtObvr6y0+nQhJBmw3102GczGBPs2QhdbNp+hOz0yCFwO3BXw=",
+        "ansible_ssh_host_key_dsa_public_keytype": "ssh-dss",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMDskFbZ/FKeMW1AD8siTm9X6IJYgaWH8/Ehyg870F+Hbw5o6tZ+fU9Qf7Qwk8JnsV9PWfQ62BP/tdmEEt27rfQ=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGQf2p1RZ4Jvm8vmcDIWxllMDAiDw7jbxU3fMdjBPhZI",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCuemJN6t4cwZsrU/3QnpC7M5Ody6bBqEp2prZs6YNYZkLXJdCKGbdjtLV376QvPQoexd4Lj5ayZn1bm6fKQHETVS2yyzI0/WB3VsYLHhhegZToWUjX7mrjqMpII6n9+dk/nrsC34m/hhLrN+Zb61jAcwrz48zRFblPryPKoROYzVlJlmiYwmJgOZ7bLC4MZYKABBPim+UcMPNGVanKpGa598/Xe8/88sZlj452OtAX6bAXJwfakpnnH+igdoI8erBPJOHriz3iMb1RfNEiHI659a2QfF78dcco1+RnRAedNn0wduqqeLcFs4ma4Tzl0U2ACVfh73G3u6wDr+QU4Jn3X7hlyvpXbwbGsIdWY50iUDYT8L3lgIA5VsVkLDFlWsX6kAgLug1wRt92bIcVosCVLT5oqC9e5OCyN4kqgPcMQnKOy/c+ZHP5k+NJ1bt/DSa8YWGROSYMuoo7E/OCSXpCGxag02le0EWW8F/o9mDqdqkQH4hy/XBg+Zau0nifBQU=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [
+            ""
+        ],
+        "ansible_system_capabilities_enforced": "True",
+        "ansible_user": "jacky",
+        "ansible_user_dir": "/home/jacky",
+        "ansible_user_gecos": "jacky",
+        "ansible_user_gid": 1000,
+        "ansible_user_id": "jacky",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 1000,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.12.9",
+            "major": 2,
+            "minor": 12,
+            "revision": 9,
+            "string": "2.12.9"
+        },
+        "discovered_interpreter_python": "/usr/bin/python3",
+        "gather_subset": [
+            "min"
+        ],
+        "group_names": [
+            "ungrouped"
+        ],
+        "groups": {
+            "all": [
+                "web1",
+                "web2",
+                "centos"
+            ],
+            "ungrouped": [
+                "web1",
+                "web2",
+                "centos"
+            ]
+        },
+        "http_port": 80,
+        "inventory_dir": "/home/jacky/ansible/lesson/module-demo/utility_module/inventory",
+        "inventory_file": "/home/jacky/ansible/lesson/module-demo/utility_module/inventory/hosts",
+        "inventory_hostname": "web1",
+        "inventory_hostname_short": "web1",
+        "module_setup": true,
+        "omit": "__omit_place_holder__5e400482bb144a3ca6ad431377610fbc861084ed",
+        "playbook_dir": "/home/jacky/ansible/lesson/module-demo/utility_module",
+        "test_set_fact": "set from set_fact"
+    }
+}
+ok: [web2] => {
+    "hostvars['web1']": {
+        "ansible_apparmor": {
+            "status": "enabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_check_mode": false,
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+            "ro": true,
+            "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+        },
+        "ansible_config_file": "/home/jacky/ansible/lesson/module-demo/utility_module/ansible.cfg",
+        "ansible_connection": "ssh",
+        "ansible_date_time": {
+            "date": "2022-09-23",
+            "day": "23",
+            "epoch": "1663916934",
+            "epoch_int": "1663916934",
+            "hour": "07",
+            "iso8601": "2022-09-23T07:08:54Z",
+            "iso8601_basic": "20220923T070854211039",
+            "iso8601_basic_short": "20220923T070854",
+            "iso8601_micro": "2022-09-23T07:08:54.211039Z",
+            "minute": "08",
+            "month": "09",
+            "second": "54",
+            "time": "07:08:54",
+            "tz": "UTC",
+            "tz_dst": "UTC",
+            "tz_offset": "+0000",
+            "weekday": "Friday",
+            "weekday_number": "5",
+            "weeknumber": "38",
+            "year": "2022"
+        },
+        "ansible_diff_mode": false,
+        "ansible_distribution": "Ubuntu",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/os-release",
+        "ansible_distribution_file_variety": "Debian",
+        "ansible_distribution_major_version": "20",
+        "ansible_distribution_release": "focal",
+        "ansible_distribution_version": "20.04",
+        "ansible_dns": {
+            "nameservers": [
+                "127.0.0.53"
+            ],
+            "options": {
+                "edns0": true,
+                "trust-ad": true
+            }
+        },
+        "ansible_domain": "",
+        "ansible_effective_group_id": 1000,
+        "ansible_effective_user_id": 1000,
+        "ansible_env": {
+            "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+            "HOME": "/home/jacky",
+            "LANG": "en_US.UTF-8",
+            "LOGNAME": "jacky",
+            "MOTD_SHOWN": "pam",
+            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+            "PWD": "/home/jacky",
+            "SHELL": "/bin/bash",
+            "SHLVL": "0",
+            "SSH_CLIENT": "192.168.11.10 53618 22",
+            "SSH_CONNECTION": "192.168.11.10 53618 192.168.11.21 22",
+            "SSH_TTY": "/dev/pts/1",
+            "TERM": "xterm",
+            "USER": "jacky",
+            "XDG_RUNTIME_DIR": "/run/user/1000",
+            "XDG_SESSION_CLASS": "user",
+            "XDG_SESSION_ID": "25",
+            "XDG_SESSION_TYPE": "tty",
+            "_": "/bin/sh"
+        },
+        "ansible_facts": {
+            "ansible_local": {},
+            "apparmor": {
+                "status": "enabled"
+            },
+            "architecture": "x86_64",
+            "cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+                "ro": true,
+                "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+            },
+            "date_time": {
+                "date": "2022-09-23",
+                "day": "23",
+                "epoch": "1663916934",
+                "epoch_int": "1663916934",
+                "hour": "07",
+                "iso8601": "2022-09-23T07:08:54Z",
+                "iso8601_basic": "20220923T070854211039",
+                "iso8601_basic_short": "20220923T070854",
+                "iso8601_micro": "2022-09-23T07:08:54.211039Z",
+                "minute": "08",
+                "month": "09",
+                "second": "54",
+                "time": "07:08:54",
+                "tz": "UTC",
+                "tz_dst": "UTC",
+                "tz_offset": "+0000",
+                "weekday": "Friday",
+                "weekday_number": "5",
+                "weeknumber": "38",
+                "year": "2022"
+            },
+            "discovered_interpreter_python": "/usr/bin/python3",
+            "distribution": "Ubuntu",
+            "distribution_file_parsed": true,
+            "distribution_file_path": "/etc/os-release",
+            "distribution_file_variety": "Debian",
+            "distribution_major_version": "20",
+            "distribution_release": "focal",
+            "distribution_version": "20.04",
+            "dns": {
+                "nameservers": [
+                    "127.0.0.53"
+                ],
+                "options": {
+                    "edns0": true,
+                    "trust-ad": true
+                }
+            },
+            "domain": "",
+            "effective_group_id": 1000,
+            "effective_user_id": 1000,
+            "env": {
+                "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+                "HOME": "/home/jacky",
+                "LANG": "en_US.UTF-8",
+                "LOGNAME": "jacky",
+                "MOTD_SHOWN": "pam",
+                "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+                "PWD": "/home/jacky",
+                "SHELL": "/bin/bash",
+                "SHLVL": "0",
+                "SSH_CLIENT": "192.168.11.10 53618 22",
+                "SSH_CONNECTION": "192.168.11.10 53618 192.168.11.21 22",
+                "SSH_TTY": "/dev/pts/1",
+                "TERM": "xterm",
+                "USER": "jacky",
+                "XDG_RUNTIME_DIR": "/run/user/1000",
+                "XDG_SESSION_CLASS": "user",
+                "XDG_SESSION_ID": "25",
+                "XDG_SESSION_TYPE": "tty",
+                "_": "/bin/sh"
+            },
+            "fips": false,
+            "fqdn": "web1",
+            "gather_subset": [
+                "min"
+            ],
+            "hostname": "web1",
+            "kernel": "5.4.0-126-generic",
+            "kernel_version": "#142-Ubuntu SMP Fri Aug 26 12:12:57 UTC 2022",
+            "lsb": {
+                "codename": "focal",
+                "description": "Ubuntu 20.04.5 LTS",
+                "id": "Ubuntu",
+                "major_release": "20",
+                "release": "20.04"
+            },
+            "machine": "x86_64",
+            "machine_id": "c0e38ba871fb424ebce12ac676dcd92b",
+            "module_setup": true,
+            "nodename": "web1",
+            "os_family": "Debian",
+            "pkg_mgr": "apt",
+            "proc_cmdline": {
+                "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+                "ro": true,
+                "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+            },
+            "python": {
+                "executable": "/usr/bin/python3",
+                "has_sslcontext": true,
+                "type": "cpython",
+                "version": {
+                    "major": 3,
+                    "micro": 10,
+                    "minor": 8,
+                    "releaselevel": "final",
+                    "serial": 0
+                },
+                "version_info": [
+                    3,
+                    8,
+                    10,
+                    "final",
+                    0
+                ]
+            },
+            "python_version": "3.8.10",
+            "real_group_id": 1000,
+            "real_user_id": 1000,
+            "selinux": {
+                "status": "disabled"
+            },
+            "selinux_python_present": true,
+            "service_mgr": "systemd",
+            "ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAPJQS/E8MCAuKvQd/acigivlsp/Qn3y49MMOhMYl2m1ywjWxcMDD/Z1HZTH9Q9KrsXUfWZgfwVK8rARnFA56kv+BcljXw2o2kxzgvkJF/aLQBCNp4mZ9auOfjVM6hKtag9kfeF31nNielAt4B7be3B3G0aOs8N44my4QOtfP9ATlAAAAFQDGFMDuGTTgeKv47dx1AvXQ8HegHwAAAIB95qXtsRtlDU7vVkATVNj+KMOk/XUAubuvwFlc1lBrfKdJV1oWrzI3TGdKg4XO9pvQLgDv/ihWx+z6qxSF6V69vF3SKWGlvfCN6LiYl2TWo4iNmfxU4p8HyFDB5MRpaoxHdFBjsJ/sAQov4hpx597OsF9ZA7UB1Gmd3uM0OReK5wAAAIEA3AiyU4dYNSRPOrneswKZYOAKhcwRE2NXZu5j2Y4uTvLXn22zSCQ6Vw+K1I+tSkUSNJdtOUI6Ekka/eI+afarUt3F3tRU3+iAxPAwA5WdFuQAxXA1h9TK/oSUekDtObvr6y0+nQhJBmw3102GczGBPs2QhdbNp+hOz0yCFwO3BXw=",
+            "ssh_host_key_dsa_public_keytype": "ssh-dss",
+            "ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMDskFbZ/FKeMW1AD8siTm9X6IJYgaWH8/Ehyg870F+Hbw5o6tZ+fU9Qf7Qwk8JnsV9PWfQ62BP/tdmEEt27rfQ=",
+            "ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+            "ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGQf2p1RZ4Jvm8vmcDIWxllMDAiDw7jbxU3fMdjBPhZI",
+            "ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+            "ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCuemJN6t4cwZsrU/3QnpC7M5Ody6bBqEp2prZs6YNYZkLXJdCKGbdjtLV376QvPQoexd4Lj5ayZn1bm6fKQHETVS2yyzI0/WB3VsYLHhhegZToWUjX7mrjqMpII6n9+dk/nrsC34m/hhLrN+Zb61jAcwrz48zRFblPryPKoROYzVlJlmiYwmJgOZ7bLC4MZYKABBPim+UcMPNGVanKpGa598/Xe8/88sZlj452OtAX6bAXJwfakpnnH+igdoI8erBPJOHriz3iMb1RfNEiHI659a2QfF78dcco1+RnRAedNn0wduqqeLcFs4ma4Tzl0U2ACVfh73G3u6wDr+QU4Jn3X7hlyvpXbwbGsIdWY50iUDYT8L3lgIA5VsVkLDFlWsX6kAgLug1wRt92bIcVosCVLT5oqC9e5OCyN4kqgPcMQnKOy/c+ZHP5k+NJ1bt/DSa8YWGROSYMuoo7E/OCSXpCGxag02le0EWW8F/o9mDqdqkQH4hy/XBg+Zau0nifBQU=",
+            "ssh_host_key_rsa_public_keytype": "ssh-rsa",
+            "system": "Linux",
+            "system_capabilities": [
+                ""
+            ],
+            "system_capabilities_enforced": "True",
+            "user_dir": "/home/jacky",
+            "user_gecos": "jacky",
+            "user_gid": 1000,
+            "user_id": "jacky",
+            "user_shell": "/bin/bash",
+            "user_uid": 1000,
+            "userspace_architecture": "x86_64",
+            "userspace_bits": "64"
+        },
+        "ansible_fips": false,
+        "ansible_forks": 5,
+        "ansible_fqdn": "web1",
+        "ansible_host": "192.168.11.21",
+        "ansible_hostname": "web1",
+        "ansible_inventory_sources": [
+            "/home/jacky/ansible/lesson/module-demo/utility_module/inventory/hosts"
+        ],
+        "ansible_kernel": "5.4.0-126-generic",
+        "ansible_kernel_version": "#142-Ubuntu SMP Fri Aug 26 12:12:57 UTC 2022",
+        "ansible_local": {},
+        "ansible_lsb": {
+            "codename": "focal",
+            "description": "Ubuntu 20.04.5 LTS",
+            "id": "Ubuntu",
+            "major_release": "20",
+            "release": "20.04"
+        },
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "c0e38ba871fb424ebce12ac676dcd92b",
+        "ansible_nodename": "web1",
+        "ansible_os_family": "Debian",
+        "ansible_pkg_mgr": "apt",
+        "ansible_playbook_python": "/usr/bin/python3",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "/vmlinuz-5.4.0-126-generic",
+            "ro": true,
+            "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+        },
+        "ansible_python": {
+            "executable": "/usr/bin/python3",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 10,
+                "minor": 8,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                8,
+                10,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.8.10",
+        "ansible_real_group_id": 1000,
+        "ansible_real_user_id": 1000,
+        "ansible_run_tags": [
+            "all"
+        ],
+        "ansible_selinux": {
+            "status": "disabled"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_skip_tags": [],
+        "ansible_ssh_host": "192.168.11.21",
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAPJQS/E8MCAuKvQd/acigivlsp/Qn3y49MMOhMYl2m1ywjWxcMDD/Z1HZTH9Q9KrsXUfWZgfwVK8rARnFA56kv+BcljXw2o2kxzgvkJF/aLQBCNp4mZ9auOfjVM6hKtag9kfeF31nNielAt4B7be3B3G0aOs8N44my4QOtfP9ATlAAAAFQDGFMDuGTTgeKv47dx1AvXQ8HegHwAAAIB95qXtsRtlDU7vVkATVNj+KMOk/XUAubuvwFlc1lBrfKdJV1oWrzI3TGdKg4XO9pvQLgDv/ihWx+z6qxSF6V69vF3SKWGlvfCN6LiYl2TWo4iNmfxU4p8HyFDB5MRpaoxHdFBjsJ/sAQov4hpx597OsF9ZA7UB1Gmd3uM0OReK5wAAAIEA3AiyU4dYNSRPOrneswKZYOAKhcwRE2NXZu5j2Y4uTvLXn22zSCQ6Vw+K1I+tSkUSNJdtOUI6Ekka/eI+afarUt3F3tRU3+iAxPAwA5WdFuQAxXA1h9TK/oSUekDtObvr6y0+nQhJBmw3102GczGBPs2QhdbNp+hOz0yCFwO3BXw=",
+        "ansible_ssh_host_key_dsa_public_keytype": "ssh-dss",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMDskFbZ/FKeMW1AD8siTm9X6IJYgaWH8/Ehyg870F+Hbw5o6tZ+fU9Qf7Qwk8JnsV9PWfQ62BP/tdmEEt27rfQ=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIGQf2p1RZ4Jvm8vmcDIWxllMDAiDw7jbxU3fMdjBPhZI",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQCuemJN6t4cwZsrU/3QnpC7M5Ody6bBqEp2prZs6YNYZkLXJdCKGbdjtLV376QvPQoexd4Lj5ayZn1bm6fKQHETVS2yyzI0/WB3VsYLHhhegZToWUjX7mrjqMpII6n9+dk/nrsC34m/hhLrN+Zb61jAcwrz48zRFblPryPKoROYzVlJlmiYwmJgOZ7bLC4MZYKABBPim+UcMPNGVanKpGa598/Xe8/88sZlj452OtAX6bAXJwfakpnnH+igdoI8erBPJOHriz3iMb1RfNEiHI659a2QfF78dcco1+RnRAedNn0wduqqeLcFs4ma4Tzl0U2ACVfh73G3u6wDr+QU4Jn3X7hlyvpXbwbGsIdWY50iUDYT8L3lgIA5VsVkLDFlWsX6kAgLug1wRt92bIcVosCVLT5oqC9e5OCyN4kqgPcMQnKOy/c+ZHP5k+NJ1bt/DSa8YWGROSYMuoo7E/OCSXpCGxag02le0EWW8F/o9mDqdqkQH4hy/XBg+Zau0nifBQU=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [
+            ""
+        ],
+        "ansible_system_capabilities_enforced": "True",
+        "ansible_user": "jacky",
+        "ansible_user_dir": "/home/jacky",
+        "ansible_user_gecos": "jacky",
+        "ansible_user_gid": 1000,
+        "ansible_user_id": "jacky",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 1000,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.12.9",
+            "major": 2,
+            "minor": 12,
+            "revision": 9,
+            "string": "2.12.9"
+        },
+        "discovered_interpreter_python": "/usr/bin/python3",
+        "gather_subset": [
+            "min"
+        ],
+        "group_names": [
+            "ungrouped"
+        ],
+        "groups": {
+            "all": [
+                "web1",
+                "web2",
+                "centos"
+            ],
+            "ungrouped": [
+                "web1",
+                "web2",
+                "centos"
+            ]
+        },
+        "http_port": 80,
+        "inventory_dir": "/home/jacky/ansible/lesson/module-demo/utility_module/inventory",
+        "inventory_file": "/home/jacky/ansible/lesson/module-demo/utility_module/inventory/hosts",
+        "inventory_hostname": "web1",
+        "inventory_hostname_short": "web1",
+        "module_setup": true,
+        "omit": "__omit_place_holder__5e400482bb144a3ca6ad431377610fbc861084ed",
+        "playbook_dir": "/home/jacky/ansible/lesson/module-demo/utility_module",
+        "test_set_fact": "set from set_fact"
+    }
+}
+
+PLAY RECAP *********************************************************************
+centos                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+web1                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+web2                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

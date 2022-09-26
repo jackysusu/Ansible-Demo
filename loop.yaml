@@ -1,0 +1,15 @@
+- name: Hello World
+  hosts: localhost
+
+  vars:
+    test:
+      - test1
+      - test2
+      - test3
+      - test4
+
+  tasks:
+    - name: test loop
+      debug:
+        msg: "{{ item }}"
+      with_items: "{{ test }}"

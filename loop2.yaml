@@ -1,0 +1,26 @@
+- name: Hello World
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    test:
+      - test1
+      - test2
+      - test3
+      - test4
+    demo:
+      - demo1
+      - demo2
+      - demo3
+    xyz:
+      - xyz1
+      - xyz2
+
+  tasks:
+    - name: test loop
+      debug:
+        msg: "{{ item[0] }}, {{ item[1] }}, {{ item[2] }}"
+      with_nested: 
+        - "{{ test }}"
+        - "{{ demo }}"
+        - "{{ xyz }}"
